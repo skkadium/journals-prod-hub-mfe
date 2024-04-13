@@ -1,0 +1,18 @@
+$ppe-spacing-unit-lg: 2rem !default;
+$ppe-spacing-unit-md: 1rem !default;
+$ppe-spacing-unit-sm: 0.5rem !default;
+$ppe-spacing-unit-xs: 0.25rem !default;
+
+$ppe-spacing-units: (
+  xs: $ppe-spacing-unit-xs,
+  sm: $ppe-spacing-unit-sm,
+  md: $ppe-spacing-unit-md,
+  lg: $ppe-spacing-unit-lg
+) !default;
+
+$ppe-breakpoints: (
+  xs: 480px,
+  sm: 720px,
+  md: 960px,
+  lg: 1200px
+) !default;

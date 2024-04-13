@@ -1,0 +1,152 @@
+$ppe-modal-overlay-background: rgba(235, 235, 235, 85%);
+$ppe-modal-buttons-background: rgb(250, 250, 250);
+$login-header-border-width: 2px;
+$login-form-height: 337px;
+$login-form-width: 656px;
+$login-form-border-width: 16px;
+
+.c-modal-dialog__overlay {
+  position: fixed;
+  inset: 0;
+  background-color: $ppe-modal-overlay-background;
+}
+
+.c-modal-dialog__border {
+  position: fixed;
+  width: $login-form-width;
+  top: 50%;
+  left: 50%;
+  margin-left: calc($login-form-width / -2);
+  margin-top: calc($login-form-height / -2);
+  border: $login-form-border-width solid $ppe-color-grey-medium;
+  padding-bottom: $ppe-spacing-unit-md;
+  background-color: $ppe-color-white;
+}
+
+.c-modal-dialog__title {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border-top: $login-header-border-width solid $ppe-color-orange;
+}
+
+.c-modal-dialog__header {
+  margin-bottom: $ppe-spacing-unit-md;
+}
+
+.c-modal-dialog__titleText {
+  @include ppe-font-size('xl');
+  width: 570px;
+}
+
+.c-modal-dialog__alertIcon {
+  display: flex;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  margin: $ppe-spacing-unit-md;
+  background-color: $ppe-color-red;
+  color: $ppe-color-white;
+}
+
+.c-modal-dialog__infoIcon {
+  display: flex;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  margin: $ppe-spacing-unit-md;
+  background-color: $ppe-color-blue-light;
+  color: $ppe-color-white;
+}
+
+.c-modal-dialog__closeIcon {
+  display: flex;
+  margin-left: auto;
+  margin-right: $ppe-spacing-unit-md;
+  color: $ppe-color-blue;
+
+  &:hover {
+    color: $ppe-color-orange;
+    cursor: pointer;
+  }
+}
+
+.c-modal-dialog__warning-icon {
+  display: inline;
+  position: relative;
+  color: $ppe-color-red;
+  margin-right: 1em;
+  top: 0.5em;
+}
+
+.c-modal-dialog__warning-heading {
+  font-size: 42px;
+  color: $ppe-color-blue;
+}
+
+.c-modal-dialog__confirmation-button_margin {
+  margin-left: 2em;
+}
+
+.c-modal-dialog__content {
+  margin-left: calc(#{2 * $ppe-spacing-unit-md} + 40px);
+  @include ppe-font-size('md');
+}
+
+.c-modal-dialog__plain-content {
+  padding: 2rem;
+  @include ppe-font-size('md');
+  width: 100%;
+}
+
+.c-modal-dialog__messageList {
+  max-height: 200px;
+  margin-left: 0;
+  overflow: auto;
+}
+
+.c-modal-dialog__messageItem {
+  list-style: none;
+  margin-right: $ppe-spacing-unit-lg;
+
+  &::before {
+    color: $ppe-color-orange;
+    content: '\2022';
+    @include ppe-font-size('lg');
+    padding-right: $ppe-spacing-unit-md;
+    position: relative;
+    top: 0;
+  }
+}
+
+.c-modal-dialog__close {
+  text-decoration-line: none;
+  color: $ppe-color-blue;
+  margin-right: 2em;
+
+  &:hover {
+    color: $ppe-color-orange;
+    cursor: pointer;
+  }
+}
+
+.c-modal-dialog__childContent {
+  margin-bottom: 10px;
+}
+
+.c-modal-dialog__childContent .splitItemGroupDialog-checkbox {
+  float: left;
+  margin-top: 2px;
+}
+
+.c-modal-dialog__childContent .splitItemGroupDialog-checkboxText {
+  padding-left: 5px;
+}
+
+.bg_white {
+  background-color: $ppe-modal-buttons-background;
+}
+
+.c-modal-dialog__confirmation-button_margin-right {
+  margin-right: 2em;
+}

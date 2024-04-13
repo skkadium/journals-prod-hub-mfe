@@ -1,0 +1,7 @@
+{
+  "doCheckmarxScan": false,
+  "acceptanceTestJob" : "/ppe-tests/ppe-test-journals-production-hub",
+  "acceptanceTestIncludeTags": "@sanity or @PPE-NONTEST",
+  "browserStackBuild" : false,
+  "skipTests" : false
+}

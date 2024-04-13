@@ -1,0 +1,177 @@
+/*
+ * Fixed header table. Floods all available space with scroll overflow
+ */
+
+$fixed-table-border-width: 2px;
+$fixed-table-header-height: 54px;
+
+/*
+ * Layout
+ */
+.c-fixed-table {
+  position: absolute;
+  inset: 0;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+  background-color: $ppe-color-grey-lightest;
+}
+
+.c-fixed-table__header {
+  margin-top: 14px;
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  min-width: 100%;
+  padding-left: $ppe-spacing-unit-lg;
+}
+
+.c-fixed-table__grid {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  top: $fixed-table-header-height + $fixed-table-border-width;
+
+  min-width: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.c-fixed-table__grid-inner {
+  margin-left: $ppe-spacing-unit-lg;
+
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: overlay;
+}
+
+.c-fixed-table__header-row,
+.c-fixed-table__row {
+  display: flex;
+}
+
+.c-fixed-table__wrapper-row {
+  padding: 0.2rem;
+  border-bottom: 2px solid #f5f5f5;
+  background-color: $ppe-color-white;
+}
+
+.c-fixed-table__header-cell,
+.c-fixed-table__cell {
+  position: relative;
+
+  flex: 1 0 auto;
+  padding-left: $ppe-spacing-unit-sm;
+  text-overflow: ellipsis;
+}
+
+.c-fixed-table__header-cell {
+  padding-top: $ppe-spacing-unit-sm;
+  padding-bottom: $ppe-spacing-unit-sm;
+}
+
+.c-fixed-table__cell {
+  padding-top: 0.5rem;
+  padding-bottom: 0.3rem;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.c-fixed-table__hover-content {
+  display: block;
+  visibility: hidden;
+  position: absolute;
+  top: 5px;
+  left: 6px;
+}
+
+/*
+ * Visuals
+ */
+
+.c-fixed-table__body {
+  background-color: $ppe-color-grey-medium;
+}
+
+.c-fixed-table__header-row {
+  background-color: $ppe-color-white;
+  border-bottom: $fixed-table-border-width solid $ppe-color-blue;
+}
+
+.c-fixed-table__wrapper-row.highlighted {
+  background-color: $ppe-color-grey-light-medium;
+}
+
+.c-fixed-table__row.bordered {
+  border: $ppe-color-blue 2px dashed;
+  background-color: $ppe-color-grey-lightest;
+}
+
+// If there is a border on the row then we need to take account of that
+// with the cell padding otherwise the columns don't quite align correctly
+.c-fixed-table__row.bordered .c-fixed-table__cell {
+  padding-left: calc(#{$ppe-spacing-unit-sm} - 2px);
+}
+
+.c-fixed-table:not(.is-dragging) .c-fixed-table__wrapper-row:hover,
+.c-fixed-table__wrapper-row.is-dragging {
+  background-color: $ppe-color-grey-light;
+  transition: background-color 0.3s ease-out;
+}
+
+.c-fixed-table__wrapper-row:hover .c-fixed-table__row.bordered {
+  background-color: transparent;
+}
+
+.c-fixed-table:not(.is-dragging) .c-fixed-table__wrapper-row:hover .c-fixed-table__hover-content {
+  visibility: visible;
+}
+
+.c-fixed-table.is-dragging .c-fixed-table__hover-content {
+  visibility: hidden;
+}
+
+.c-fixed-table__wrapper-row.is-dragging .c-fixed-table__hover-content {
+  visibility: visible;
+}
+
+.c-fixed-table--fade {
+  color: lighten($ppe-color-black, 50%);
+}
+
+.c-fixed-table__wrapper-row.is-dragging {
+  box-shadow: 5px 5px 10px lighten($ppe-color-black, 20%);
+}
+
+.c-fixed-table__row.expanded .c-fixed-table__cell {
+  white-space: normal;
+}
+
+.c-fixed-table__header-cell,
+.c-fixed-table__header-cell * {
+  @include ppe-font-size('md');
+
+  color: $ppe-color-blue;
+}
+
+.c-fixed-table__message {
+  @include ppe-font-size('lg');
+}
+
+.c-fixed-table.is-dragging {
+  cursor: move;
+  cursor: grabbing;
+}
+
+.c-fixed-table__wrapper-row.selected {
+  background-color: $ppe-color-blue-lightest;
+}
+
+.c-fixed-table.c-fixed-table__selectable-by-row-icon .c-fixed-table__cell {
+  .c-fixed-table__row_selector {
+    position: absolute;
+    top: 5px;
+    left: 6px;
+  }
+}

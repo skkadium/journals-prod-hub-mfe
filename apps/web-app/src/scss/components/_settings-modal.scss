@@ -1,0 +1,37 @@
+$settings-modal-header-height: 52px;
+$settings-modal-frame: 15px;
+
+.c-settings-modal {
+  z-index: 1;
+}
+
+.c-settings-modal__overlay {
+  position: fixed;
+  inset: 0;
+  border: 0;
+  background-color: $ppe-color-dialog-mask;
+}
+
+.c-settings-modal__box {
+  position: fixed;
+  left: $settings-modal-frame;
+  right: $settings-modal-frame;
+  top: $settings-modal-frame;
+  height: calc(100% - #{$settings-modal-frame * 2});
+  overflow-y: hidden;
+  background-color: $ppe-color-white;
+}
+
+.c-settings-modal__header {
+  height: $settings-modal-header-height;
+  padding-left: $ppe-spacing-unit-lg;
+  padding-right: $ppe-spacing-unit-lg;
+  @include ppe-font-size('lg');
+  background-color: $ppe-color-blue;
+  color: $ppe-color-white;
+}
+
+.c-settings-modal__content {
+  position: relative;
+  height: calc(100% - #{$settings-modal-header-height});
+}

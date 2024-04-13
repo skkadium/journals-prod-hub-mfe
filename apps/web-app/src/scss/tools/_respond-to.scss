@@ -1,0 +1,44 @@
+/*
+ * Flexible reponsive utility. Feed it a breakpoint as a map breakpoint or a pixel
+ * For example all the following are valid breakpoints: sm, max-sm, 300px, max-300px
+ */
+
+@mixin ppe-respond-to($breakpoint) {
+  // Assertain type and sanitise
+  $px-index: str-index($breakpoint, 'px');
+  $max-index: str-index($breakpoint, 'max-');
+
+  // Derive true width
+  $width: null;
+
+  @if $px-index == null {
+    // its a breakpoint
+    $key: $breakpoint;
+    @if $max-index != null {
+      $key: str-slice($breakpoint, 5);
+    }
+
+    @if map-has-key($ppe-breakpoints, $key) == false {
+      @warn 'Could not find key `#{$key}` in `$ppe-breakpoints` map.';
+    }
+
+    $width: #{map-get($ppe-breakpoints, $key)};
+  } @else if $max-index != null {
+    // its a max pixel width
+    $width: str-slice($breakpoint, 5);
+  } @else {
+    // its a pixel width
+    $width: $breakpoint;
+  }
+
+  // Finally output media query
+  @if $max-index == null {
+    @media (min-width: #{$width}) {
+      @content;
+    }
+  } @else {
+    @media (max-width: #{$width}) {
+      @content;
+    }
+  }
+}

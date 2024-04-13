@@ -1,0 +1,58 @@
+{
+  "name": "root",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "build:deps": "pnpm --filter '@repo/*' run build",
+    "bootstrap": "pnpm install && pnpm build:deps && pnpm run -r bootstrap",
+    "build": "pnpm run -r build && ./scripts/build.sh",
+    "lint": "eslint --ext ts,tsx . && stylelint **/*.scss",
+    "precommit": "lint-staged",
+    "test:pact:publish": "echo tests are under construction",
+    "start:web-app:mock": "pnpm run -r start",
+    "test": "pnpm run -r test",
+    "prepare": "husky",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx}\"",
+    "preview:app": "pnpm build && pnpm run -r preview"
+  },
+  "keywords": [],
+  "author": "Elsevier",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "@pact-foundation/pact-node": "^6.21.1",
+    "@typescript-eslint/eslint-plugin": "^7.2.0",
+    "@typescript-eslint/parser": "^7.2.0",
+    "eslint": "^8.47.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "husky": "^9.0.11",
+    "lerna": "^7.1.5",
+    "lint-staged": "^15.2.2",
+    "postcss": "^8.4.32",
+    "postcss-scss": "^4.0.7",
+    "prettier": "^3.1.1",
+    "prettier-eslint-cli": "^8.0.1",
+    "stylelint": "15.10.3",
+    "stylelint-config-standard-scss": "^10.0.0",
+    "tsup": "^8.0.2",
+    "typescript": "^5.4.3"
+  },
+  "dependencies": {
+    "jest-environment-jsdom": "^29.7.0"
+  },
+  "lint-staged": {
+    "*.ts": [
+      "prettier-eslint --write"
+    ],
+    "*.tsx": [
+      "prettier-eslint --write"
+    ]
+  }
+}

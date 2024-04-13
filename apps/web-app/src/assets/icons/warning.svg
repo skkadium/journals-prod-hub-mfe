@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="13px" height="13px" viewBox="0 0 13 13" version="1.1" 
+    xmlns="http://www.w3.org/2000/svg" 
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Icons" stroke="none" stroke-width="1">
+        <g id="PPE-Icons" transform="translate(-234.000000, -138.000000)">
+            <path d="M240.5,140.648148 L245.109091,149.796296 L235.890909,149.796296 L240.5,140.648148 Z M234,151 L247,151 L240.5,138 L234,151 Z M239.909091,147.388889 L241.090909,147.388889 L241.090909,148.592593 L239.909091,148.592593 L239.909091,147.388889 Z M239.909091,144.740741 L240.126545,146.666667 L240.835636,146.666667 L241.090909,144.740741 L241.090909,143.296296 L239.909091,143.296296 L239.909091,144.740741 Z" id="icon-warning"></path>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,21 @@
+$ppe-font-dir: '../assets/fonts/' !default;
+
+$ppe-font-weight: 400 !default;
+$ppe-font-family: NexusSansWebPro !default;
+$ppe-font-style: normal !default;
+$ppe-line-height: 1.3 !default;
+
+$ppe-heading-font-weight: 500 !default;
+$ppe-heading-font-family: NexusSansWebPro !default;
+$ppe-heading-font-style: normal !default;
+$ppe-heading-line-height: 1.5 !default;
+
+$ppe-font-sizes: (
+  xxl: (def: 28px, xs: 28px, sm: 30px, lg: 34px),
+  xl: (def: 22px, xs: 20px, sm: 22px, lg: 24px),
+  lg: (def: 20px, xs: 18px, sm: 19px, lg: 22px),
+  md: (def: 16px, xs: 16px, sm: 17px, lg: 18px),
+  sm: (def: 14px, xs: 14px, sm: 16px, lg: 16px),
+  xs: (def: 13px, xs: 13px, sm: 14px, lg: 14px),
+  xxs: (def: 11px, xs: 11px, sm: 12px, lg: 12px)
+) !default;

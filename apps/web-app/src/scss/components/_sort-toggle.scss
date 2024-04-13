@@ -1,0 +1,14 @@
+.c-sort-toggle { 
+  * {
+    vertical-align: middle;
+    cursor: pointer;
+  }
+
+  > button {
+    > div {
+      display: inline-block;
+      text-align: left;
+      margin-right: 1em;
+    }
+  }
+}

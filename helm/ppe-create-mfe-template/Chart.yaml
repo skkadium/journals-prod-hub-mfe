@@ -1,0 +1,4 @@
+apiVersion: v1
+description: A Helm chart for ppe-web-${webapp-name}
+name: ppe-web-${webapp-name}
+version: 0.1.0

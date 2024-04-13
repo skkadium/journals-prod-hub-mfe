@@ -1,0 +1,99 @@
+/*
+ * Register fonts
+ */
+
+$font-part: $ppe-font-dir + 'NexusSansWebPro';
+
+@font-face {
+  font-family: 'NexusSansWebPro';
+  src: url('#{$font-part}.eot');
+  src: url('#{$font-part}.eot?#iefix') format('embedded-opentype'), url('#{$font-part}.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'NexusSansWebPro';
+  src: url('#{$font-part}-Bold.eot');
+  src: url('#{$font-part}-Bold.eot?#iefix') format('embedded-opentype'), url('#{$font-part}-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'NexusSansWebPro';
+  src: url('#{$font-part}-Italic.eot');
+  src: url('#{$font-part}-Italic.eot?#iefix') format('embedded-opentype'),
+    url('#{$font-part}-Italic.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'NexusSansWebPro';
+  src: url('#{$font-part}-BoldItalic.eot');
+  src: url('#{$font-part}-BoldItalic.eot?#iefix') format('embedded-opentype'),
+    url('#{$font-part}-BoldItalic.woff') format('woff');
+  font-weight: bold;
+  font-style: italic;
+}
+
+/*
+ * Core typography
+ */
+body {
+  @include ppe-font-size('sm');
+  font-weight: $ppe-font-weight;
+  font-family: $ppe-font-family;
+  font-style: $ppe-font-style;
+  line-height: $ppe-line-height;
+
+  color: $ppe-color-greyish-brown;
+}
+
+/*
+ * Heading typography
+ */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: $ppe-heading-font-weight;
+  font-family: $ppe-heading-font-family;
+  font-style: $ppe-heading-font-style;
+  line-height: $ppe-heading-line-height;
+}
+
+h1 {
+  @include ppe-font-size('xl');
+}
+
+h2 {
+  @include ppe-font-size('lg');
+}
+
+h3 {
+  @include ppe-font-size('md');
+}
+
+h4 {
+  @include ppe-font-size('sm');
+}
+
+h5 {
+  @include ppe-font-size('sm');
+}
+
+h6 {
+  @include ppe-font-size('xs');
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: $ppe-font-family;
+}

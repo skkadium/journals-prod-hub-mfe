@@ -1,0 +1,17 @@
+.c-unauthorised__warning-icon {
+  display: inline;
+  position: relative;
+  color: #f00;
+  margin-right: 1em;
+  top: 0.5em;
+}
+
+.c-unauthorised__warning-heading {
+  font-size: 3rem;
+  color: $ppe-color-blue;
+}
+
+.c-unauthorised__content {
+  height: 264px;
+  padding: 2rem;
+}

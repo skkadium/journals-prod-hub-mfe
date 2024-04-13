@@ -1,0 +1,92 @@
+/*
+ * Standard button component in various colors
+ */
+
+$ppe-button-colors: (
+  blue: $ppe-color-blue,
+  green: $ppe-color-green
+);
+
+.c-button {
+  display: block;
+  min-width: 100px;
+  min-height: 40px;
+  padding-left: $ppe-spacing-unit-md;
+  padding-right: $ppe-spacing-unit-md;
+
+  text-align: center;
+}
+
+.c-button-sm {
+  display: block;
+  min-width: 70px;
+  min-height: 40px;
+  padding-left: $ppe-spacing-unit-sm;
+  padding-right: $ppe-spacing-unit-sm;
+
+  text-align: center;
+}
+
+@each $color-name, $color in $ppe-button-colors {
+  .c-button--#{"" + $color-name} {
+    border: 2px solid $color;
+
+    background-color: $color;
+    color: $ppe-color-white;
+  }
+
+  .c-button--#{"" + $color-name}.c-button:hover,
+  .c-button--#{"" + $color-name}.c-button-sm:hover {
+    border: 2px solid $ppe-color-orange;
+
+    background-color: $ppe-color-orange;
+    color: $ppe-color-white;
+
+    cursor: pointer;
+  }
+}
+
+.c-button--white {
+  border: 2px solid $ppe-color-grey-medium;
+
+  background-color: $ppe-color-white;
+  color: $ppe-color-greyish-brown;
+}
+
+.c-button--white.c-button:hover,
+.c-button--white.c-button-sm:hover {
+
+  cursor: pointer;
+}
+
+.c-button:hover {
+  cursor: pointer;
+}
+
+.c-button:disabled,
+.c-button:disabled:hover {
+  border: 2px solid $ppe-color-grey-dark;
+
+  background-color: $ppe-color-grey-dark;
+  color: $ppe-color-white;
+
+  cursor: not-allowed;
+}
+
+.is-confirming,
+.is-confirming:hover,
+.is-confirming:disabled,
+.is-confirming:disabled:hover {
+  border: 2px solid $ppe-color-green;
+  background-color: $ppe-color-green;
+  color: $ppe-color-white;
+}
+
+.has-failed,
+.has-failed:hover,
+.has-failed:disabled,
+.has-failed:disabled:hover {
+  border: 2px solid $ppe-color-red;
+  background-color: $ppe-color-red;
+  color: $ppe-color-white;
+}

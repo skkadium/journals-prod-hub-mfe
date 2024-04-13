@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="12px" height="12px" viewBox="0 0 12 12" version="1.1" 
+    xmlns="http://www.w3.org/2000/svg" 
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Icons" stroke="none" stroke-width="1">
+        <g id="PPE-Icons" transform="translate(-70.000000, -60.000000)">
+            <polygon id="icon-close" transform="translate(76.000000, 66.000000) rotate(-315.000000) translate(-76.000000, -66.000000) " points="76.8139535 65.1860465 76.8139535 59 75.1860465 59 75.1860465 65.1860465 69 65.1860465 69 66.8139535 75.1860465 66.8139535 75.1860465 73 76.8139535 73 76.8139535 66.8139535 83 66.8139535 83 65.1860465"></polygon>
+        </g>
+    </g>
+</svg>

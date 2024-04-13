@@ -1,0 +1,49 @@
+.c-save-button {
+  min-height: 32px;
+  @include ppe-font-size('sm');
+
+  &.c-button:disabled {
+    border: 0;
+  }
+}
+  
+.c-save-button .c-icon {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1rem;
+  height: 1rem;
+}
+
+.c-save-button__saving:disabled,
+.c-save-button__saving:disabled:hover {
+  background-color: $ppe-color-white-transparent-10;
+  color: $ppe-color-white;
+}
+
+.c-save-button__saved:disabled,
+.c-save-button__saved:disabled:hover {
+  background-color: $ppe-color-green;
+}
+
+.c-save-button__failed:disabled,
+.c-save-button__failed:disabled:hover {
+  background-color: $ppe-color-red;
+}
+
+// no changes
+.c-save-button__main:disabled,
+.c-save-button__main:disabled:hover {
+  background-color: $ppe-color-white-transparent-10;
+  color: $ppe-color-white-transparent-50;
+}
+
+// has changes
+.c-save-button__main {
+  background-color: $ppe-color-white;
+  color: $ppe-color-blue;
+}
+
+.c-save-button__main:hover {
+  background-color: $ppe-color-orange;
+  color: $ppe-color-white;
+}

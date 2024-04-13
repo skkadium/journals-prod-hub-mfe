@@ -1,0 +1,142 @@
+$form-border-width: 2px;
+
+.c-form-section {
+  margin-bottom: 0;
+}
+
+.c-form-line {
+  display: block;
+}
+
+.c-form-label {
+  @include ppe-font-size('sm');
+  color: $ppe-color-blue;
+  margin-right: 4px;
+
+  .mandatory::after {
+    content: '*';
+    color: $ppe-color-red;
+  }
+}
+
+.c-form-text {
+  color: $ppe-color-greyish-brown;
+}
+
+.c-form-error-text {
+  color: $ppe-color-red;
+}
+
+.c-form-input,
+.c-form-textarea {
+  height: 32px;
+  @include ppe-font-size('sm');
+  border: solid 2px $ppe-color-grey-medium;
+  background-color: $ppe-color-white;
+  color: $ppe-color-greyish-brown;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  padding-left: 8px;
+
+  box-shadow: none;
+  outline: none;
+
+  &.c-form-error {
+    border: solid 2px $ppe-color-red;
+  }
+
+  &:focus {
+    border: solid 2px $ppe-color-greyish-brown;
+    box-shadow: none;
+  }
+}
+
+.c-form-textarea {
+  width: 100%;
+  height: 150px;
+  padding-top: 5px;
+}
+
+.c-form-input-feedback {
+  color: $ppe-color-red;
+  @include ppe-font-size('xs');
+
+  ul {
+    margin-left: 1rem;
+  }
+}
+
+.c-form-select {
+  @include ppe-font-size('sm');
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+.c-react-select__control {
+  height: 32px;
+  @include ppe-font-size('sm');
+  border: solid 1px $ppe-color-grey-medium !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+.c-react-select__control--is-focused {
+  border: solid 2px $ppe-color-greyish-brown !important;
+  box-shadow: none !important;
+}
+
+.c-form-error .c-react-select__control:not(.c-react-select__control--is-focused) {
+  border: solid 1px $ppe-color-red !important;
+}
+
+.c-react-select__option {
+  color: $ppe-color-blue !important;
+  background-color: $ppe-color-white !important;
+}
+
+.c-react-select__option--is-focused {
+  color: $ppe-color-blue !important;
+  background-color: $ppe-color-light-orange !important;
+}
+
+.c-react-select__option--is-selected {
+  color: $ppe-color-white !important;
+  background-color: $ppe-color-orange !important;
+}
+
+.c-react-select__menu {
+  margin-top: 0 !important;
+}
+
+input[type='radio'] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+input[type='radio']:not(:disabled):checked ~ .c-form-radiomark {
+  border: solid 5px $ppe-color-orange;
+}
+
+input[type='radio']:disabled:checked ~ .c-form-radiomark {
+  border: solid 5px $ppe-color-grey-medium-dark;
+}
+
+// On mouse-over, add a grey background color
+input[type='radio']:not(:checked):not(:disabled):hover ~ .c-form-radiomark {
+  border-color: $ppe-color-grey-dark;
+}
+
+.c-form-radiomark {
+  display: inline-block;
+  top: 0;
+  left: 0;
+  height: 16px;
+  width: 16px;
+  margin-bottom: -3px;
+  margin-right: 4px;
+  margin-left: 4px;
+  background-color: $ppe-color-white;
+  border-radius: 50%;
+  border: solid 1px $ppe-color-grey-medium;
+}

@@ -1,0 +1,84 @@
+.c-pit-mappings-table__table.c-fixed-table {
+  position: relative;
+  top: initial;
+  left: initial;
+  right: initial;
+  flex-grow: 1;
+}
+
+.c-pit-mappings-table__table .c-fixed-table__body {
+  position: absolute;
+  inset: 40px 0 0;
+  background-color: $ppe-color-white;
+  padding: $ppe-spacing-unit-lg;
+  padding-top: 0;
+  overflow-y: auto;
+}
+
+.c-pit-mappings-table__table .c-fixed-table__row:last-child {
+  border-bottom: 3px solid $ppe-color-grey-medium;
+}
+
+.c-pit-mappings-table__table .c-fixed-table__header {
+  padding: 0;
+  position: static;
+  top: initial;
+  left: initial;
+  right: initial;
+  bottom: initial;
+}
+
+.c-pit-mappings-table__table .c-fixed-table__header-row {
+  padding: 0 2rem;
+}
+
+.c-pit-mappings-table__table .c-fixed-table__row {
+  border-bottom: 1px solid $ppe-color-grey-medium;
+  line-height: 2em;
+}
+
+.c-pit-mappings-table__table .c-fixed-table__row:hover {
+  background-color: $ppe-color-grey-light;
+}
+
+.c-pit-mappings-table__table .c-fixed-table__header::after {
+  bottom: 1em;
+}
+
+.c-pit-mappings-table__pitcode {
+  min-width: 8rem;
+  width: 8rem;
+}
+
+.c-pit-mappings-table__description {
+  min-width: 28rem;
+  width: 28rem;
+}
+
+.c-pit-mappings-table__section {
+  min-width: 16rem;
+  width: 16rem;
+}
+
+.c-fixed-table__cell.c-pit-mappings-table__section {
+  overflow: visible;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+.c-fixed-table__header-row,
+.c-sort-toggle > button {
+  height: 40px;
+}
+
+.c-fixed-table__header-cell.c-pit-mappings-table__description {
+  line-height: 40px;
+}
+
+.c-fixed-table__header-row {
+  border-bottom-width: 1px;
+}
+
+.c-fixed-table__header-cell {
+  padding-top: 0;  
+}

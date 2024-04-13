@@ -1,0 +1,51 @@
+/**
+* Fill window
+*/
+html {
+  min-height: 100%;
+}
+
+/**
+* Apply a consistent vertical rhythm
+*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hgroup,
+ul,
+ol,
+dl,
+blockquote,
+p,
+address,
+table,
+fieldset,
+figure,
+pre,
+hr {
+  margin-bottom: $ppe-spacing-unit-md;
+}
+
+/*
+ * Indent certain elements by a consistent amount
+ */
+ul,
+ol,
+dd {
+  margin-left: ($ppe-spacing-unit-lg);
+}
+
+input:focus {
+  outline: none !important;
+}
+
+button {
+  background: none;
+}
+
+button:focus {
+  outline: none;
+}

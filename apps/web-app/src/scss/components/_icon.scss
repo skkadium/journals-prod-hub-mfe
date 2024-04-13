@@ -1,0 +1,46 @@
+/*
+ * Simple icon with standard size modifiers
+ */
+
+$icon-sizes: (
+  xs: 0.8rem,
+  sm: 1rem,
+  md: 1.1rem,
+  lg: 1.125rem,
+  xl: 1.25rem,
+  xxl: 3rem
+);
+
+.c-icon {
+  display: block;
+  margin: 0 auto;
+
+  fill: currentcolor;
+}
+
+.c-icon--blue {
+  fill: $ppe-color-blue;
+}
+
+.c-icon--red {
+  fill: $ppe-color-red;
+}
+
+@each $spacer, $unit in $icon-sizes {
+  .c-icon--#{$spacer} {
+    width: $unit;
+    height: $unit;
+  }
+}
+
+.c-icon--rotate-90 {
+  transform: rotate(90deg);
+}
+
+.c-icon--rotate-180 {
+  transform: rotate(180deg);
+}
+
+.c-icon--rotate-270 {
+  transform: rotate(270deg);
+}

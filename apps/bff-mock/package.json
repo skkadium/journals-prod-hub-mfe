@@ -1,0 +1,29 @@
+{
+  "name": "bff-mock",
+  "version": "1.0.0",
+  "description": "BFF mock server to simulate backend service.",
+  "main": "index.js",
+  "author": "Elsevier",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "bootstrap": "yarn generate-mock",
+    "generate-mock": "tsx scripts/generate-mock.ts",
+    "start": "nodemon --watch 'mock.json' --exec tsx src/server.ts",
+    "test": "echo pact tests are stopped"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^8.4.1",
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.11.30",
+    "nodemon": "^3.1.0",
+    "tsx": "^4.7.1"
+  },
+  "dependencies": {
+    "@mswjs/http-middleware": "^0.9.2",
+    "express": "^4.19.1",
+    "msw": "^2.2.9",
+    "@repo/app-config": "workspace:^",
+    "@repo/logger": "workspace:^"
+  }
+}

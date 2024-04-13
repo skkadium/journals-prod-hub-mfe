@@ -1,0 +1,20 @@
+{
+  "extends": "stylelint-config-standard-scss",
+  "customSyntax": "postcss-scss",
+  "ignoreFiles": ["**/_normalize.scss"],
+  "rules":{
+    "selector-class-pattern": null,
+    "font-family-name-quotes": null,
+    "declaration-empty-line-before": null,
+    "no-descending-specificity": null,
+    "color-function-notation": "legacy",
+    "scss/no-global-function-names": null,
+    "at-rule-empty-line-before": null,
+    "selector-not-notation": "simple",
+    "scss/dollar-variable-empty-line-before": null,
+    "value-keyword-case": null,
+    "scss/at-if-no-null": null,
+    "block-opening-brace-space-before": "always",
+    "declaration-block-no-redundant-longhand-properties": null
+  }
+}

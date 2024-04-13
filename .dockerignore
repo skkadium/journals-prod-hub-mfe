@@ -1,0 +1,16 @@
+**/__mocks__
+**/__tests__
+**/coverage
+**/jest
+**/node_modules
+**/stats
+
+**/*.log
+**/README.md
+
+.editorconfig
+.eslintignore
+.eslintrc
+.prettierrc
+.stylelintrc
+lerna.json

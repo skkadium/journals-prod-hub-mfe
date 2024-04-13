@@ -1,0 +1,86 @@
+.c-popup {
+  position: relative;
+}
+
+.inverted {
+  transform: rotate(180deg) scaleX(-1);
+}
+
+.c-popup__outer::before,
+.c-popup__outer::after {
+  position: absolute;
+  left: 0;
+  width: 0;
+  height: 0;
+  content: '';
+}
+
+.c-popup__outer::before {
+  top: -16px;
+  border-bottom: 16px solid $ppe-color-orange;
+}
+
+.c-popup__outer::after {
+  top: -13px;
+  border-bottom: 13px solid $ppe-color-grey-medium;
+}
+
+.c-popup__outer {
+  position: absolute;
+  top: 55px;
+  width: 250px;
+  z-index: 100;
+  background: $ppe-color-grey-medium;
+  border-top: 2px solid $ppe-color-orange;
+  box-shadow: 2px 2px 3px $ppe-color-grey-dark;
+  
+  &.c-popup__left-to-right {
+    left: 15px;
+
+    &::before {
+      border-right: 16px solid transparent;
+    }
+
+    &::after {
+      border-right: 13px solid transparent;
+    }
+  }
+
+  &.c-popup__right-to-left {
+    left: -240px;
+
+    &::before {
+      left: 234px;
+      border-left: 16px solid transparent;
+    }
+
+    &::after {
+      left: 237px;
+      border-left: 13px solid transparent;
+    }
+  }
+}
+
+.c-popup__inner {
+  margin: 10px;
+  background: #fff;
+}
+
+.c-popup__close {
+  margin-top: 3px;
+  float: right;
+}
+
+.c-popup__content {
+  clear: both;
+  padding-right: 5px;
+  padding-left: 10px;
+}
+
+.c-popup__content.withclose {
+  padding-top: 0;
+}
+
+.c-popup__content.withoutclose {
+  padding-top: 10px;
+}

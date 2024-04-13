@@ -1,0 +1,41 @@
+.c-form-select {
+  @include ppe-font-size('sm');
+  margin-top: 1px;
+  margin-bottom: 1px;
+}
+
+.c-react-select__control {
+  height: 32px;
+  @include ppe-font-size('sm');
+  border: solid 1px $ppe-color-grey-medium !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+.c-react-select__control--is-focused {
+  border: solid 2px $ppe-color-greyish-brown !important;
+  box-shadow: none !important;
+}
+
+.c-form-error .c-react-select__control:not(.c-react-select__control--is-focused) {
+  border: solid 1px $ppe-color-red !important;
+}
+
+.c-react-select__option {
+  color: $ppe-color-blue !important;
+  background-color: $ppe-color-white !important;
+}
+
+.c-react-select__option--is-focused {
+  color: $ppe-color-blue !important;
+  background-color: $ppe-color-light-orange !important;
+}
+
+.c-react-select__option--is-selected {
+  color: $ppe-color-white !important;
+  background-color: $ppe-color-orange !important;
+}
+
+.c-react-select__menu {
+  margin-top: 0 !important;
+}

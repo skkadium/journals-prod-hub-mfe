@@ -1,0 +1,20 @@
+/*
+ * Return font-size property along with all of its associated breakpoint sizes
+ */
+
+@mixin ppe-font-size($key) {
+  @if map-has-key($ppe-font-sizes, $key) == false {
+    @warn 'Could not find key `#{$key}` in the `$ppe-font-sizes` map.';
+  }
+
+  $responsive-sizes: map-get($ppe-font-sizes, $key);
+  @each $breakpoint in map-keys($responsive-sizes) {
+    @if $breakpoint == 'def' {
+      font-size: map-get($responsive-sizes, $breakpoint);
+    } @else {
+      @include ppe-respond-to($breakpoint) {
+        font-size: map-get($responsive-sizes, $breakpoint);
+      }
+    }
+  }
+}

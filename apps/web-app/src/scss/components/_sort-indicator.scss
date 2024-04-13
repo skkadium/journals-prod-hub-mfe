@@ -1,0 +1,24 @@
+.c-sort-indicator {
+  width: 7px;
+  height: 7px;
+  display: block;
+  position: relative;
+  stroke: $ppe-color-blue;
+  stroke-width: 0.5px;
+}
+
+.c-sort-indicator__active {
+  fill: $ppe-color-blue;
+}
+
+.c-sort-indicator__inactive {
+  fill: none;
+}
+
+.c-sort-indicator__up {
+  top: -2px;
+}
+
+.c-sort-indicator__down {
+  top: 2px;
+}

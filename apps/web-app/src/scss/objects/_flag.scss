@@ -1,0 +1,17 @@
+/*
+ * Place two elements side by side with the body element filling remaining horizontal space
+ */
+
+.o-flag {
+  display: table;
+}
+
+.o-flag__body,
+.o-flag__component {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.o-flag__body {
+  width: 100%;
+}

@@ -1,0 +1,21 @@
+/*
+ * Apply padding
+ */
+
+@each $size-name, $size in $ppe-spacing-units {
+  .u-soft-left-#{$size-name} {
+    padding-left: $size;
+  }
+
+  .u-soft-right-#{$size-name} {
+    padding-right: $size;
+  }
+
+  .u-soft-top-#{$size-name} {
+    padding-top: $size;
+  }
+
+  .u-soft-bottom-#{$size-name} {
+    padding-bottom: $size;
+  }
+}

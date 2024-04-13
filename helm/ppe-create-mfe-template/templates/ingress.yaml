@@ -1,0 +1,34 @@
+{{if .Values.ingress.enabled}}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ .Chart.Name }}
+{{- with .Values.ingress.annotations }}
+  annotations:
+{{ toYaml . | indent 4 }}
+{{- end }}
+spec:
+{{if .Values.ingress.tls.enabled}}
+  tls:
+  - hosts:
+    - {{ .Values.global.ingress.host }}
+{{end}}
+{{if .Values.ingress.backend.enabled}}
+  backend:
+    service:
+      name: default-http-backend
+      port:
+        number: 80
+{{end}}
+  rules:
+  - host: {{ .Values.global.ingress.host }}
+    http:
+      paths:
+        - path: /web/{{ .Chart.Name }}/
+          pathType: Prefix
+          backend:
+            service:
+              name: {{ .Chart.Name }}
+              port:
+                number: {{ .Values.service.port }}
+{{end}}

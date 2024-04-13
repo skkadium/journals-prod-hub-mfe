@@ -1,0 +1,123 @@
+/*
+ * Icon button component in various colors
+ */
+
+$ppe-icon-button-colors: (
+  white: $ppe-color-white,
+  blue: $ppe-color-blue,
+  green: $ppe-color-green,
+  orange: $ppe-color-orange,
+  grey-medium: $ppe-color-grey-medium,
+  grey-dark: $ppe-color-grey-dark,
+  grey-medium-dark: $ppe-color-grey-medium-dark,
+  greyish-brown: $ppe-color-greyish-brown
+);
+
+.c-icon-button {
+  display: block;
+  height: 24px;
+  width: 24px;
+
+  cursor: pointer;
+}
+
+.c-icon-button:disabled,
+.c-icon-button:disabled:hover {
+  cursor: auto;
+}
+
+.c-icon-button-checkbox:disabled {
+  pointer-events: none;
+}
+
+.c-icon-button:focus {
+  outline: none !important;
+}
+
+.c-icon-button.critical {
+  float: right !important;
+  height: 24px;
+  width: 24px;
+
+  cursor: pointer;
+}
+
+@each $color-name, $color in $ppe-icon-button-colors {
+  .c-icon-button.border-hover-#{"" + $color-name}:hover:enabled {
+    border: 2px solid $color !important;
+  }
+
+  .c-icon-button.no-fill {
+    background-color: transparent;
+  }
+
+  .c-icon-button--#{"" + $color-name} {
+    border: 2px solid $color;
+
+    background-color: $color;
+    color: $ppe-color-white;
+  }
+
+  .c-icon-button--#{"" + $color-name}:disabled {
+    border: 2px solid $ppe-color-grey-medium;
+    background-color: transparent;
+    color: $ppe-color-grey-medium;
+  }
+
+  .c-icon-button--#{"" + $color-name}.c-icon-button--hollow:not([disabled]) {
+    border: 2px solid $color;
+
+    background-color: transparent;
+    color: $color;
+  }
+
+  .c-icon-button--#{"" + $color-name}.c-icon-button--none {
+    border: 2px solid transparent;
+    background-color: transparent;
+    color: $color;
+  }
+
+  .c-icon-button.c-icon-button--#{"" + $color-name}.c-icon-button--none:hover:not([disabled]) {
+    border: 2px solid transparent;
+    background-color: transparent;
+    color: $ppe-color-orange !important;
+  }
+
+  .c-icon-button--#{"" + $color-name}.c-icon-button:hover:not([disabled]),
+  .c-icon-button__selected > .c-icon-button--#{"" + $color-name}.c-icon-button {
+    border: 2px solid $ppe-color-orange;
+
+    background-color: $ppe-color-orange;
+    color: $ppe-color-white;
+  }
+
+  .c-icon-button--alt-#{"" + $color-name} {
+    border: 2px solid transparent;
+
+    color: $color;
+    background-color: transparent;
+  }
+
+  .c-icon-button--alt-#{"" + $color-name}:hover:not([disabled]) {
+    color: $ppe-color-blue;
+  }
+
+  .c-icon-button--#{"" + $color-name}.no-hover.c-icon-button--hollow:enabled:hover {
+    border: 2px solid $color;
+
+    background-color: transparent;
+    color: $color;
+  }
+
+  .c-icon-button.#{"" + $color-name}-content {
+    color: $color !important;
+  }
+
+  .c-icon-button-fill--#{"" + $color-name} {
+    fill: $color;
+    
+    &:hover:not([disabled]) {
+      fill: $ppe-color-orange;
+    }
+  }
+}

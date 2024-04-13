@@ -1,0 +1,26 @@
+/*
+ * Indicates something is being asynchronously loaded
+ */
+
+$loading-indicator-spin-duration: 2s;
+
+.c-loading-indicator {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.c-loading-indicator__inner {
+  display: inline-block;
+
+  animation: loading-indicator-spin $loading-indicator-spin-duration linear infinite;
+}
+
+@keyframes loading-indicator-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(359deg);
+  }
+}

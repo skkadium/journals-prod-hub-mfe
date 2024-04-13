@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" 
+    xmlns:xlink="http://www.w3.org/1999/xlink" width="15" height="16" viewBox="0 0 15 16">
+    <defs></defs>
+    <g id="Icons" stroke="none" stroke-width="1">
+        <g id="PPE-Icons" transform="translate(-376 -200)">
+            <path d="M385.97 213.176l5.089-5.175-5.09-5.177-1.229 1.248 2.996 3.048h-7.03v1.766h7.03l-2.992 3.042 1.225 1.248m-8.12-11.474h8.504V200H376v16h10.353v-1.702h-8.504v-12.596"></path>
+        </g>
+    </g>
+</svg>
