@@ -1,4 +1,5 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { BrowserRouter } from 'react-router-dom'
 import { render } from '@testing-library/react'
 import { ReactElement, ReactNode } from 'react'
 
@@ -15,7 +16,9 @@ export const queryClientMock = new QueryClient({
 })
 export const createWrapper = () => {
   return ({ children }: { children: ReactNode }) => (
-    <QueryClientProvider client={queryClientMock}>{children}</QueryClientProvider>
+    <BrowserRouter>
+      <QueryClientProvider client={queryClientMock}>{children}</QueryClientProvider>
+    </BrowserRouter>
   )
 }
 

@@ -42,9 +42,9 @@ rm -rf .git
 git init
 ```
 
-Locate and replace the string (without the quotes) '${webapp-name}' with the lowercase and hyphenated name of the web application, for example, journals-production-hub.
+Locate and replace the string (without the quotes) 'journals-production-hub' with the lowercase and hyphenated name of the web application, for example, journals-production-hub.
 
-Rename the directory within the project root folder from `helm/ppe-create-mfe-template` to `helm/${webapp-name}`.
+Rename the directory within the project root folder from `helm/ppe-create-mfe-template` to `helm/journals-production-hub`.
 
 Update the title element in the `web-app` package's template located at `/index.html`.
 

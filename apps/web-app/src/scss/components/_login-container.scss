@@ -1,0 +1,139 @@
+/*
+ * Modal to contain login form
+ */
+
+$login-header-height: 52px;
+$login-header-border-width: 2px;
+$login-form-height: 337px;
+$login-form-width: 656px;
+$login-form-border-width: 16px;
+
+.c-login-container {
+  position: fixed;
+  inset: 0;
+  border: 0;
+  background-color: $ppe-color-white;
+}
+
+.c-login-container__header {
+  height: $login-header-height;
+  padding-left: $ppe-spacing-unit-lg;
+  padding-top: $ppe-spacing-unit-sm;
+
+  @include ppe-font-size('md');
+
+  color: $ppe-color-black;
+  border-bottom: 4px solid $ppe-color-grey-light-medium;
+}
+
+.c-login-container__toolbar {
+  height: $app-container-toolbar-height;
+  border-bottom: 4px solid $ppe-color-grey-light-medium;
+}
+
+.c-login-container__header .c-icon-button {
+  margin-bottom: 1rem;
+}
+
+.c-login-container__content {
+  position: fixed;
+
+  width: 100%;
+  background-color: $ppe-color-grey-lightest;
+}
+
+.c-login-form__border {
+  position: fixed;
+  width: $login-form-width;
+  top: 50%;
+  left: 50%;
+  margin-left: calc($login-form-width / -2);
+  margin-top: calc($login-form-height / -2);
+  border: $login-form-border-width solid $ppe-color-grey-medium;
+  padding-bottom: $ppe-spacing-unit-lg;
+}
+
+.c-login-form {
+  width: 100%;
+  background-color: $ppe-color-white;
+  border-top: $login-header-border-width solid $ppe-color-orange;
+}
+
+.c-login-form__intro {
+  display: inline-block;
+  width: 262px;
+  padding-left: 64px;
+
+  h2 {
+    margin-top: 44px;
+    @include ppe-font-size('xxl');
+  }
+}
+
+.c-login-form__form {
+  display: inline-block;
+  vertical-align: top;
+  width: calc(100% - 262px);
+  padding-top: 78px;
+
+  label {
+    @include ppe-font-size('xs');
+    color: $ppe-color-blue;
+  }
+
+  input {
+    display: block;
+    width: calc(100% - 70px);
+    height: 32px;
+    margin-bottom: $ppe-spacing-unit-sm;
+    @include ppe-font-size('md');
+    padding-left: $ppe-spacing-unit-sm;
+  }
+
+  .invalid {
+    border: $login-header-border-width solid $ppe-color-red;
+  }
+
+  .formFieldError,
+  .signInError {
+    color: $ppe-color-red;
+    @include ppe-font-size('xs');
+    margin-bottom: $ppe-spacing-unit-sm;
+  }
+
+  .signInServerError {
+    color: $ppe-color-red;
+    @include ppe-font-size('xs');
+    margin-bottom: $ppe-spacing-unit-sm;
+
+    div {
+      margin-top: 10px;
+    }
+  }
+
+  button {
+    @include ppe-font-size('xl');
+    width: 110px;
+  }
+}
+
+.c-login-form__submit {
+  width: 100%;
+  margin-top: $ppe-spacing-unit-lg;
+
+  .formFieldError,
+  .signInError,
+  .signInServerError {
+    margin: auto;
+    margin-left: $ppe-spacing-unit-sm;
+  }
+}
+
+.c-login-form__submit-alert {
+  width: 28px;
+  height: 28px;
+  padding-top: 7px;
+  margin-left: $ppe-spacing-unit-md;
+  background-color: $ppe-color-red;
+  color: $ppe-color-white;
+}

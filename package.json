@@ -18,7 +18,7 @@
     "test": "pnpm run -r test",
     "prepare": "husky",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx}\"",
-    "preview:app": "pnpm build && pnpm run -r preview"
+    "preview": "pnpm run -r preview"
   },
   "keywords": [],
   "author": "Elsevier",

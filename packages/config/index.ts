@@ -1,8 +1,20 @@
 export const config = {
-  appName: '${webapp-name}',
+  appName: 'journals-production-hub',
   authMock: {
     port: 6000,
     url: 'http://localhost:6000'
+  },
+  auth: {
+    api: {
+      path: '/services/ppe-service-authentication'
+    },
+    interval: 3300000,
+    authorisedRoles: [
+      'ELS-GPO AWS PPE System Administrators',
+      'ELS-GPO AWS PPE Non-Prod System Administrators',
+      'ELS-GPO AWS PPE Journal Managers',
+      'ELS-GPO AWS PPE Non-Prod Journal Managers'
+    ]
   },
   bffMock: {
     port: 5000,
@@ -14,42 +26,18 @@ export const config = {
   bff: {
     api: {
       contentType: 'application/json; charset=utf-8',
-      path: '/services/ppe-graph-bff-${webapp-name}/graphql'
+      path: '/services/ppe-bff-journals-production-hub/graphql'
     }
   },
-  personBff: {
+  findIssueBff: {
     api: {
       contentType: 'application/json; charset=utf-8',
       path: '/services/ppe-service-bff-person'
     }
   },
-  pact: {
-    brokerUrl: 'https://pact-broker.ppe-np.elsevier.net/',
-    consumerVersion: '1.0.0',
-    bff: {
-      consumerName: 'ppe-web-${webapp-name}',
-      providerName: 'ppe-graph-bff-${webapp-name}',
-      pactFolder: 'pacts',
-      mockProvider: {
-        api: {
-          path: '/',
-          matchers: {
-            contentType: '(application\\/json; ?charset=(UTF|utf)-8)'
-          }
-        },
-        log: {
-          level: 'INFO',
-          filename: 'logs/pact.log'
-        },
-        port: 8022,
-        spec: 2,
-        url: 'http://localhost:8022'
-      }
-    }
-  },
   webApp: {
     port: 8080,
-    path: '/web/ppe-web-${webapp-name}',
+    path: '/web/ppe-web-journals-production-hub',
     helpUrl: 'https://elsevier.atlassian.net/wiki/spaces/PPECOMMS/overview'
   }
 }

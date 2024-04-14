@@ -38,14 +38,6 @@ dd {
   margin-left: ($ppe-spacing-unit-lg);
 }
 
-input:focus {
-  outline: none !important;
-}
-
 button {
   background: none;
-}
-
-button:focus {
-  outline: none;
 }

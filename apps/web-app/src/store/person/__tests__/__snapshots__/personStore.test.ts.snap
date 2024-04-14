@@ -1,7 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`store/person/personStore should fetch initial person details state 1`] = `
-{
-  "persons": [],
-}
-`;

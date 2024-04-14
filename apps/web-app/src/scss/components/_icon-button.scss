@@ -120,4 +120,10 @@ $ppe-icon-button-colors: (
       fill: $ppe-color-orange;
     }
   }
+
+  .els-icon:hover {
+  order: 2px solid transparent;
+    background-color: transparent;
+    color: #e9711c !important;
+}
 }

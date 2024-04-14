@@ -1,86 +1,108 @@
-import { act, cleanup, screen } from '@testing-library/react'
-import { JOURNAL_MANAGER_JWT_ENC } from '../../utils/jwt'
+import { cleanup, screen, waitFor } from '@testing-library/react'
+import { JOURNAL_MANAGER_JWT_ENC, NON_JOURNAL_MANAGER_JWT_ENC } from '../../utils/jwt'
 import AppRoot from '../AppRoot'
-import { mockedPersonDetails, renderWithQueryProvider } from '../../jest/jest.setup.unit'
-import usePersonStore from '../../store/person/personStore'
-import useGetPersonDetails from '../../hooks/useGetPersonDetails'
+import { renderWithQueryProvider } from '../../jest/jest.setup.unit'
+import { useLogout } from '../../hooks/useLogout'
+import { useRefreshTokenQuery } from '../../hooks/useRefreshJwt'
 
-jest.mock('../../hooks/useGetPersonDetails')
+const renderApp = () => renderWithQueryProvider(<AppRoot />)
 
-const useGetPersonDetailsMock = useGetPersonDetails as jest.Mock
+jest.mock('../../hooks/useLogout')
+jest.mock('../../hooks/useRefreshJwt')
+
+const useRefreshTokenQueryMock = useRefreshTokenQuery as jest.Mock
+const useLogoutMock = useLogout as jest.Mock
+
 describe('app/AppRoot', () => {
-  const initialPersonState = usePersonStore.getState()
-
   beforeEach(() => {
     localStorage.clear()
-    usePersonStore.setState(initialPersonState, true)
+    useLogoutMock.mockImplementation(() => ({
+      onLogout: jest.fn()
+    }))
   })
+
   afterEach(cleanup)
+
+  it('should render login when stored JWT has expired', async () => {
+    // Arrange
+    const ppeJwt = JOURNAL_MANAGER_JWT_ENC
+    localStorage.setItem('ppeJwt', ppeJwt)
+    useRefreshTokenQueryMock.mockImplementation(() => ({
+      isSuccess: false,
+      isError: true,
+      error: { response: { data: { errorType: 'LOGIN_REQUIRED' } } }
+    }))
+
+    // Act
+    const { container } = renderApp()
+
+    // Assert
+    const headings = container.querySelectorAll('h2')
+    const subtitle = screen.getByText(/Use your organisation account details to sign in./)
+    const userIdInput = screen.getByLabelText(/User ID/)
+    const passwordInput = screen.getByLabelText(/Password/)
+    const signInButton = screen.getByRole('button', { name: 'Sign in' })
+
+    expect(headings).toHaveLength(2)
+    expect(headings.item(0).textContent).toEqual('Journals Production Hub')
+    expect(headings.item(1).textContent).toEqual('Sign in')
+    expect(subtitle).toBeVisible()
+
+    expect(userIdInput).toBeVisible()
+    expect(passwordInput).toBeVisible()
+    expect(signInButton).toBeVisible()
+    expect(signInButton.getAttribute('disabled')).toBe('')
+  })
 
   it('should render application when stored JWT is valid', async () => {
     // Arrange
     const ppeJwt = JOURNAL_MANAGER_JWT_ENC
     localStorage.setItem('ppeJwt', ppeJwt)
 
-    useGetPersonDetailsMock.mockImplementation(() => ({ isSuccess: true, data: { persons: [] } }))
-    usePersonStore.setState({ persons: [] })
+    const newPpeJwt = JOURNAL_MANAGER_JWT_ENC
+
+    useRefreshTokenQueryMock.mockImplementation(() => ({
+      isSuccess: true,
+      data: { jwt: newPpeJwt }
+    }))
 
     // Act
-    const { container } = await act(async () => renderWithQueryProvider(<AppRoot />))
+    const { container } = renderApp()
 
     // Assert
     const heading = container.querySelector('h2')
-    const columnHeaders = await screen.findAllByRole('columnHeader')
 
-    expect(heading).toHaveTextContent('PPE Web Application')
-
-    expect(columnHeaders).toHaveLength(5)
-    expect(columnHeaders.at(0)).toHaveTextContent('FullName')
-    expect(columnHeaders.at(1)).toHaveTextContent('Bio')
-    expect(columnHeaders.at(2)).toHaveTextContent('Job Title')
-    expect(columnHeaders.at(3)).toHaveTextContent('Email Id')
-    expect(columnHeaders.at(4)).toHaveTextContent('Zodiac Sign')
+    expect(heading).toHaveTextContent('Journals Production Hub')
+    await waitFor(() => {
+      expect(screen.getByTitle('Log out')).toBeVisible()
+    })
   })
 
-  it('should render application with Person Details', async () => {
+  it("should render LoginError when stored JWT doesn't contain role", async () => {
     // Arrange
-    const ppeJwt = JOURNAL_MANAGER_JWT_ENC
+    const ppeJwt = NON_JOURNAL_MANAGER_JWT_ENC
     localStorage.setItem('ppeJwt', ppeJwt)
 
-    useGetPersonDetailsMock.mockImplementation(() => ({ isSuccess: true, data: { persons: mockedPersonDetails } }))
-    usePersonStore.setState({ persons: mockedPersonDetails })
+    useRefreshTokenQueryMock.mockImplementation(() => ({
+      isSuccess: true,
+      data: { jwt: NON_JOURNAL_MANAGER_JWT_ENC }
+    }))
 
     // Act
-    const { container } = await act(async () => renderWithQueryProvider(<AppRoot />))
+    const { container } = renderApp()
 
     // Assert
     const heading = container.querySelector('h2')
-    const columnHeaders = await screen.findAllByRole('columnHeader')
-    const cells = await screen.findAllByRole('cell')
+    const unAuthorizedErrorContent = container.getElementsByClassName('c-unauthorised__content')
 
-    expect(heading).toHaveTextContent('PPE Web Application')
-
-    expect(columnHeaders).toHaveLength(5)
-    expect(columnHeaders.at(0)).toHaveTextContent('FullName')
-    expect(columnHeaders.at(1)).toHaveTextContent('Bio')
-    expect(columnHeaders.at(2)).toHaveTextContent('Job Title')
-    expect(columnHeaders.at(3)).toHaveTextContent('Email Id')
-    expect(columnHeaders.at(4)).toHaveTextContent('Zodiac Sign')
-
-    expect(cells).toHaveLength(10)
-
-    // Row 1
-    expect(cells.at(0)).toHaveTextContent('Winifred Watsica')
-    expect(cells.at(1)).toHaveTextContent('writer, creator, dreamer')
-    expect(cells.at(2)).toHaveTextContent('Senior Markets Officer')
-    expect(cells.at(3)).toHaveTextContent('ezekiel84@yahoo.com')
-    expect(cells.at(4)).toHaveTextContent('Pisces')
-
-    // Row 2
-    expect(cells.at(5)).toHaveTextContent('Darlene Leffler')
-    expect(cells.at(6)).toHaveTextContent('analysis fan, parent 🇭🇹')
-    expect(cells.at(7)).toHaveTextContent('District Infrastructure Administrator')
-    expect(cells.at(8)).toHaveTextContent('trey96@gmail.com')
-    expect(cells.at(9)).toHaveTextContent('Cancer')
+    expect(heading).toHaveTextContent('Journals Production Hub')
+    expect(unAuthorizedErrorContent.item(0)?.childNodes[0]).toHaveTextContent('Sorry,')
+    expect(unAuthorizedErrorContent.item(0)?.childNodes[1]).toHaveTextContent(
+      'You do not have permission to use this feature.'
+    )
+    expect(unAuthorizedErrorContent.item(0)?.childNodes[2].nodeName).toBe('HR')
+    expect(unAuthorizedErrorContent.item(0)?.childNodes[3]).toHaveTextContent(
+      'Please refer to PPE procedures for guidance on accessing this application.'
+    )
   })
 })

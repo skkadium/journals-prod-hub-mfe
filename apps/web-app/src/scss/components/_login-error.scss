@@ -1,0 +1,20 @@
+.c-login-error__warning-icon {
+  display: inline;
+  position: relative;
+  color: #f00;
+  margin-right: 1em;
+  top: 0.5em;
+}
+
+.c-login-error__warning-heading {
+  font-size: 42px;
+  color: $ppe-color-blue;
+}
+
+.c-login-error__warning-text {
+  font-size: 24px;
+}
+
+.c-login-error__content {
+  padding: 2rem;
+}

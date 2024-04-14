@@ -12,10 +12,11 @@ export default defineConfig({
     svgr(),
     federation({
       name: config.appName,
-      filename: 'remoteEntry.js',
-      remotes: {},
+      remotes: {
+        findIssue: 'http://localhost:8081/web/ppe-web-find-issue/assets/remoteEntry.js'
+      },
       exposes: {},
-      shared: ['react', 'react-dom']
+      shared: ['react', 'react-dom', 'react-router-dom', 'zustand', '@tanstack/react-query']
     })
   ],
   server: {
@@ -28,9 +29,9 @@ export default defineConfig({
         target: config.bffMock.url,
         rewrite: (path: string) => path.replace(config.bff.api.path, '/graphql')
       },
-      [config.personBff.api.path]: {
-        target: config.bffMock.url,
-        rewrite: (path: string) => path.replace(config.personBff.api.path, '/')
+      [config.auth.api.path]: {
+        target: config.authMock.url,
+        rewrite: (path: string) => path.replace(config.auth.api.path, '/')
       }
     }
   },
@@ -41,10 +42,14 @@ export default defineConfig({
     open: false,
     host: true,
     proxy: {
-      [config.bff.api.path]: {
-        target: config.bffMock.url,
-        rewrite: (path: string) => path.replace(config.bff.api.path, '/')
+      [config.auth.api.path]: {
+        target: config.authMock.url,
+        rewrite: (path: string) => path.replace(config.auth.api.path, '/')
       }
+    },
+    [config.findIssueBff.api.path]: {
+      target: config.bffMock.url,
+      rewrite: (path: string) => path.replace(config.findIssueBff.api.path, '/')
     }
   },
 

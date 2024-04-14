@@ -3,12 +3,12 @@
  */
 
 .o-flag {
-  display: table;
+  display: flex;
 }
 
 .o-flag__body,
 .o-flag__component {
-  display: table-cell;
+  display: inline-flex;
   vertical-align: middle;
 }
 
