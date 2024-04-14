@@ -16,7 +16,7 @@ export default defineConfig({
         findIssue: 'http://localhost:8081/web/ppe-web-find-issue/assets/remoteEntry.js'
       },
       exposes: {},
-      shared: ['react', 'react-dom', 'react-router-dom', 'zustand', '@tanstack/react-query']
+      shared: ['react', 'react-dom', 'react-router-dom', 'zustand', '@tanstack/react-query', 'axios']
     })
   ],
   server: {
@@ -39,17 +39,16 @@ export default defineConfig({
   preview: {
     port: config.webApp.port,
     strictPort: true,
-    open: false,
-    host: true,
+    host: '127.0.0.1',
     proxy: {
       [config.auth.api.path]: {
         target: config.authMock.url,
         rewrite: (path: string) => path.replace(config.auth.api.path, '/')
+      },
+      [config.findIssueBff.api.path]: {
+        target: config.bffMock.url,
+        rewrite: (path: string) => path.replace(config.findIssueBff.api.path, '/')
       }
-    },
-    [config.findIssueBff.api.path]: {
-      target: config.bffMock.url,
-      rewrite: (path: string) => path.replace(config.findIssueBff.api.path, '/')
     }
   },
 

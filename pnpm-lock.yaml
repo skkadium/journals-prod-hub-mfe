@@ -104,6 +104,40 @@ importers:
         specifier: ^4.7.1
         version: 4.7.1
 
+  apps/bff-mock:
+    dependencies:
+      '@mswjs/http-middleware':
+        specifier: ^0.9.2
+        version: 0.9.2(msw@2.2.11)
+      '@repo/app-config':
+        specifier: workspace:^
+        version: link:../../packages/config
+      '@repo/logger':
+        specifier: workspace:^
+        version: link:../../packages/logging
+      express:
+        specifier: ^4.19.1
+        version: 4.19.2
+      msw:
+        specifier: ^2.2.9
+        version: 2.2.11(typescript@5.4.3)
+    devDependencies:
+      '@faker-js/faker':
+        specifier: ^8.4.1
+        version: 8.4.1
+      '@types/express':
+        specifier: ^4.17.21
+        version: 4.17.21
+      '@types/node':
+        specifier: ^20.11.30
+        version: 20.11.30
+      nodemon:
+        specifier: ^3.1.0
+        version: 3.1.0
+      tsx:
+        specifier: ^4.7.1
+        version: 4.7.1
+
   apps/web-app:
     dependencies:
       '@els/els-react--icon':
@@ -162,7 +196,7 @@ importers:
         version: 5.0.0-alpha.6(@types/react@18.2.72)(react@18.2.0)
     devDependencies:
       '@originjs/vite-plugin-federation':
-        specifier: ^1.3.5
+        specifier: 1.3.5
         version: 1.3.5
       '@testing-library/jest-dom':
         specifier: ^6.4.2
@@ -1181,6 +1215,11 @@ packages:
   /@eslint/js@8.57.0:
     resolution: {integrity: sha512-Ys+3g2TaW7gADOJzPt83SJtCDhMjndcDMFVQ/Tj9iA1BfJzFKD9mAUXT3OenpuPHbI6P/myECxRJrofUsDx/5g==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+    dev: true
+
+  /@faker-js/faker@8.4.1:
+    resolution: {integrity: sha512-XQ3cU+Q8Uqmrbf2e0cIC/QN43sTBSC8KF12u29Mb47tWrt2hAgBXSgpZMj4Ao8Uk0iJcU99QsOCaIL8934obCg==}
+    engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0, npm: '>=6.14.13'}
     dev: true
 
   /@floating-ui/core@1.6.0:
