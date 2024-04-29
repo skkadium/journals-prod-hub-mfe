@@ -13,7 +13,7 @@ export default defineConfig({
     federation({
       name: config.appName,
       remotes: {
-        findIssue: 'http://localhost:8081/web/ppe-web-find-issue/assets/remoteEntry.js'
+        findIssue: 'http://localhost:8080/web/ppe-web-find-issues/assets/remoteEntry.js'
       },
       exposes: {},
       shared: ['react', 'react-dom', 'react-router-dom', 'zustand', '@tanstack/react-query', 'axios']

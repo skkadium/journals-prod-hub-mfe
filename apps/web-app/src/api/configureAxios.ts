@@ -1,6 +1,8 @@
 import axios, { AxiosError, AxiosResponse, InternalAxiosRequestConfig } from 'axios'
 import { config } from '@repo/app-config'
 
+const axiosInstance = axios.create()
+
 /**
  * Represents the options for configuring Axios.
  */
@@ -61,12 +63,12 @@ const onResponseError = (axiosError: AxiosError, { onBffUnauthorized }: Configur
  */
 export const configureAxios = ({ onBffUnauthorized }: ConfigureAxiosOptions): void => {
   // Configure axios to configure the Authorization header on bff api requests
-  axios.interceptors.request.use(onRequest)
+  axiosInstance.interceptors.request.use(onRequest)
 
-  axios.interceptors.response.use(onResponse, error => {
+  axiosInstance.interceptors.response.use(onResponse, error => {
     return onResponseError(error, { onBffUnauthorized })
   })
 
   // Set global timeout for 2 minutes
-  axios.defaults.timeout = 120000
+  axiosInstance.defaults.timeout = 120000
 }
